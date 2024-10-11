@@ -18,7 +18,7 @@ public class MyTesting {
         return true;
     }
 
-    // 3. Método para contar el número de letras 'a' en una cadena
+    // 3. Método para contar el número de letras 'a' en una cadena.
     public int contarLetrasA(String cadena) {
         return (int) cadena.chars()
                 .filter(letra -> letra == 'a')
