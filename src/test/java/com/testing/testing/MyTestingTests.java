@@ -35,10 +35,10 @@ class MyTestingTests {
 
     @Test
     public void testCheckNegative() {
-        //given negative number
+        
         int num = -99;
 
-        //when
+        
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() {
@@ -46,7 +46,7 @@ class MyTestingTests {
             }
         });
 
-        //then
+        
         assertEquals("El número no puede ser negativo", exception.getMessage());
 
 
@@ -54,13 +54,12 @@ class MyTestingTests {
 
     @Test
     public void testCheckPositive() {
-        //given positive numer
+        
         int num = 99;
 
-        //when
+        
         boolean result = MyTesting.checkPositivo(num);
 
-        //then
         assertTrue(result);
     }
 }
