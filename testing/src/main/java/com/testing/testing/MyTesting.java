@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class MyTesting {
     // 1. Método para sumar dos números
 
-    public int sumar(int a, int b) {
+    public static int sumar(int a, int b) {
         return a + b;
     }
 
