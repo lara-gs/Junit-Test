@@ -15,11 +15,11 @@ class MyTestingTests {
 
     @Test
     public void testSumar() {
-        int num1 = 35; 
+        int num1 = 35;
         int num2 = 79;
-        
+
         int result = MyTesting.sumar(num1, num2);
-        
+
         assertEquals(114, result);
         assertTrue(result > 100);
         assertFalse(result > 120);
@@ -31,7 +31,7 @@ class MyTestingTests {
     public void testCheckNegative() {
         int num = -99;
         boolean negativo;
-        
+
         try {
             negativo = MyTesting.checkPositivo(num);
         } catch (IllegalArgumentException e) {
@@ -43,9 +43,9 @@ class MyTestingTests {
     @Test
     public void testCheckPositive() {
         int num = 99;
-        
+
         boolean resultado = MyTesting.checkPositivo(num);
-        
+
         assertTrue(resultado);
     }
 
@@ -54,9 +54,9 @@ class MyTestingTests {
         MyTesting myTesting = new MyTesting();
         String cadena = "Palabra";
         int resultado = 3;
-        
+
         int letrasA = myTesting.contarLetrasA(cadena);
-        
+
         assertTrue(resultado == letrasA);
     }
 
@@ -91,21 +91,50 @@ class MyTestingTests {
     }
 
     @Test
+    public void testFactorialMenorCero() {
+        MyTesting myTesting = new MyTesting();
+        int numero = -8;
+        long resultadoFactorial = 0;
+        long resultado;
+        try {
+            resultado = myTesting.factorial(numero);
+        } catch (IllegalArgumentException e) {
+            resultado = 0;
+        }
+        assertTrue(resultado == resultadoFactorial);
+    }
+
+    @Test
     public void testEsPrimo() {
         MyTesting myTesting = new MyTesting();
         int numero = 2;
-
         boolean resultado = myTesting.esPrimo(numero);
 
         assertTrue(resultado);
     }
 
     @Test
+    public void testEsPrimoMenorUno() {
+        MyTesting myTesting = new MyTesting();
+        int numero = 0;
+        boolean resultado = myTesting.esPrimo(numero);
+
+        assertFalse(resultado);
+    }
+
+    @Test
+    public void testEsPrimoNoPrimo() {
+        MyTesting myTesting = new MyTesting();
+        int numero = 4;
+        boolean resultado = myTesting.esPrimo(numero);
+
+        assertFalse(resultado);
+    }
+
+    @Test
     public void testMensajeConRetraso() throws InterruptedException {
         MyTesting myTesting = new MyTesting();
-
         String resultado = myTesting.mensajeConRetraso();
-
         assertEquals("Listo después de retraso", resultado);
     }
 
@@ -120,6 +149,7 @@ class MyTestingTests {
         assertEquals(resultado, listaString);
 
     }
+
     @Test
     public void testCalcularMedia() {
         MyTesting myTesting = new MyTesting();
@@ -132,14 +162,30 @@ class MyTestingTests {
     }
 
     @Test
+    public void testCalcularMediaVacia() {
+        MyTesting myTesting = new MyTesting();
+        List<Integer> lista = new ArrayList<>();
+        int media = 0;
+        double resultado;
+
+        try {
+            resultado = myTesting.calcularMedia(lista);
+        } catch (IllegalArgumentException e) {
+            resultado = 0;
+        }
+
+        assertEquals(resultado, media);
+    }
+
+    @Test
     public void testConvertirListaAString() {
-    MyTesting myTesting = new MyTesting();
-    List<String> lista = new ArrayList<>(Arrays.asList("abeja", "oveja", "oso", "carpincho"));
-    String listaString = "ABEJA,OVEJA,OSO,CARPINCHO";
+        MyTesting myTesting = new MyTesting();
+        List<String> lista = new ArrayList<>(Arrays.asList("abeja", "oveja", "oso", "carpincho"));
+        String listaString = "ABEJA,OVEJA,OSO,CARPINCHO";
 
-    String resultado = myTesting.convertirListaAString(lista);
+        String resultado = myTesting.convertirListaAString(lista);
 
-    assertEquals(listaString, resultado);
-}
+        assertEquals(listaString, resultado);
+    }
 
 }

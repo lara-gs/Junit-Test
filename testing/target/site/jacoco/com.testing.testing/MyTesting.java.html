@@ -37,8 +37,8 @@ import java.util.stream.Collectors;
 
     // 6. Método que calcula el factorial de un número
     public long factorial(int numero) {
-<span class="pc bpc" id="L40" title="1 of 2 branches missed.">        if (numero &lt; 0) {</span>
-<span class="nc" id="L41">            throw new IllegalArgumentException(&quot;Factorial no definido para números negativos&quot;);</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (numero &lt; 0) {</span>
+<span class="fc" id="L41">            throw new IllegalArgumentException(&quot;Factorial no definido para números negativos&quot;);</span>
         }
 <span class="fc" id="L43">        long resultado = 1;</span>
 <span class="fc bfc" id="L44" title="All 2 branches covered.">        for (int i = 1; i &lt;= numero; i++) {</span>
@@ -49,12 +49,12 @@ import java.util.stream.Collectors;
 
     // 7. Método para verificar si un número es primo
     public boolean esPrimo(int numero) {
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (numero &lt;= 1) {</span>
-<span class="nc" id="L53">            return false;</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        if (numero &lt;= 1) {</span>
+<span class="fc" id="L53">            return false;</span>
         }
-<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        for (int i = 2; i * i &lt;= numero; i++) {</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">            if (numero % i == 0) {</span>
-<span class="nc" id="L57">                return false;</span>
+<span class="pc bfc" id="L55" title="All 2 branches covered.">        for (int i = 2; i * i &lt;= numero; i++) {</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">            if (numero % i == 0) {</span>
+<span class="fc" id="L57">                return false;</span>
             }
         }
 <span class="fc" id="L60">        return true;</span>
@@ -75,8 +75,8 @@ import java.util.stream.Collectors;
 
     // 10. Método que calcula la media de una lista de enteros
     public double calcularMedia(List&lt;Integer&gt; lista) {
-<span class="pc bpc" id="L78" title="2 of 4 branches missed.">        if (lista == null || lista.isEmpty()) {</span>
-<span class="nc" id="L79">            throw new IllegalArgumentException(&quot;La lista no puede ser nula o vacía&quot;);</span>
+<span class="pc bpc" id="L78" title="1 of 4 branches missed.">        if (lista == null || lista.isEmpty()) {</span>
+<span class="fc" id="L79">            throw new IllegalArgumentException(&quot;La lista no puede ser nula o vacía&quot;);</span>
         }
 <span class="fc" id="L81">        return lista.stream()</span>
 <span class="fc" id="L82">                .mapToInt(Integer::intValue)</span>
