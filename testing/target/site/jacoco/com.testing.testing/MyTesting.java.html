@@ -52,8 +52,8 @@ import java.util.stream.Collectors;
 <span class="fc bfc" id="L52" title="All 2 branches covered.">        if (numero &lt;= 1) {</span>
 <span class="fc" id="L53">            return false;</span>
         }
-<span class="pc bfc" id="L55" title="All 2 branches covered.">        for (int i = 2; i * i &lt;= numero; i++) {</span>
-<span class="pc bpc" id="L56" title="1 of 2 branches missed.">            if (numero % i == 0) {</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (int i = 2; i * i &lt;= numero; i++) {</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">            if (numero % i == 0) {</span>
 <span class="fc" id="L57">                return false;</span>
             }
         }
@@ -75,7 +75,7 @@ import java.util.stream.Collectors;
 
     // 10. Método que calcula la media de una lista de enteros
     public double calcularMedia(List&lt;Integer&gt; lista) {
-<span class="pc bpc" id="L78" title="1 of 4 branches missed.">        if (lista == null || lista.isEmpty()) {</span>
+<span class="fc bfc" id="L78" title="All 4 branches covered.">        if (lista == null || lista.isEmpty()) {</span>
 <span class="fc" id="L79">            throw new IllegalArgumentException(&quot;La lista no puede ser nula o vacía&quot;);</span>
         }
 <span class="fc" id="L81">        return lista.stream()</span>
@@ -87,7 +87,7 @@ import java.util.stream.Collectors;
     // 11. Método para convertir una lista de enteros a lista de strings
     public String convertirListaAString(List&lt;String&gt; lista) {
 <span class="fc" id="L89">        return lista.stream()</span>
-<span class="pc bpc" id="L90" title="1 of 2 branches missed.">                .map(s -&gt; s == null ? &quot;NULL&quot; : s.toUpperCase()) // Si es null, lo reemplazamos por &quot;NULL&quot;</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">                .map(s -&gt; s == null ? &quot;NULL&quot; : s.toUpperCase()) // Si es null, lo reemplazamos por &quot;NULL&quot;</span>
 <span class="fc" id="L91">                .collect(Collectors.joining(&quot;,&quot;));</span>
     }
 }

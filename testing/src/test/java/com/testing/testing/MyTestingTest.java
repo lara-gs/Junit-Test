@@ -125,12 +125,38 @@ class MyTestingTests {
     @Test
     public void testEsPrimoNoPrimo() {
         MyTesting myTesting = new MyTesting();
-        int numero = 4;
+        int numero = 8;
         boolean resultado = myTesting.esPrimo(numero);
 
         assertFalse(resultado);
     }
-
+    @Test
+    public void testEsPrimoNegativo() {
+        MyTesting myTesting = new MyTesting();
+        int numero = -5;
+        boolean resultado = myTesting.esPrimo(numero);
+    
+        assertFalse(resultado);
+    }
+    
+    @Test
+    public void testEsPrimoMayorPrimo() {
+        MyTesting myTesting = new MyTesting();
+        int numero = 11;
+        boolean resultado = myTesting.esPrimo(numero);
+    
+        assertTrue(resultado);
+    }
+    
+    @Test
+    public void testEsPrimoMayorNoPrimo() {
+        MyTesting myTesting = new MyTesting();
+        int numero = 12;
+        boolean resultado = myTesting.esPrimo(numero);
+    
+        assertFalse(resultado);
+    }
+    
     @Test
     public void testMensajeConRetraso() throws InterruptedException {
         MyTesting myTesting = new MyTesting();
@@ -178,10 +204,37 @@ class MyTestingTests {
     }
 
     @Test
+    public void testCalcularMediaNull() {
+        MyTesting myTesting = new MyTesting();
+        List<Integer> lista = null;
+        int media = 0;
+        double resultado;
+
+        try {
+            resultado = myTesting.calcularMedia(lista);
+        } catch (IllegalArgumentException e) {
+            resultado = 0;
+        }
+
+        assertEquals(resultado, media);
+    }
+
+    @Test
     public void testConvertirListaAString() {
         MyTesting myTesting = new MyTesting();
         List<String> lista = new ArrayList<>(Arrays.asList("abeja", "oveja", "oso", "carpincho"));
         String listaString = "ABEJA,OVEJA,OSO,CARPINCHO";
+
+        String resultado = myTesting.convertirListaAString(lista);
+
+        assertEquals(listaString, resultado);
+    }
+
+    @Test
+    public void testConvertirListaAStringNull() {
+        MyTesting myTesting = new MyTesting();
+        List<String> lista = new ArrayList<>(Arrays.asList(null, "oveja", "oso", "carpincho"));
+        String listaString = "NULL,OVEJA,OSO,CARPINCHO";
 
         String resultado = myTesting.convertirListaAString(lista);
 
